@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="com.example.sohee.t.MainActivity">
+
+    <Button
+        android:id="@+id/functionbtn1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signupbtn"
+        android:layout_alignStart="@+id/signupbtn"
+        android:layout_below="@+id/signupbtn"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/pink_empty_oval"
+        android:backgroundTint="#980000"
+        android:onClick="OnFunction1btnClicked"
+        android:text="Function1"
+        android:textColor="#FFFFF6"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/signupbtn"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/signupbtn"
+        android:layout_marginTop="48dp"
+        app:srcCompat="@drawable/logo" />
+    <Button
+        android:id="@+id/surveybtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/functionbtn2"
+        android:layout_alignStart="@+id/functionbtn2"
+        android:layout_below="@+id/functionbtn2"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/pink_empty_oval"
+        android:backgroundTint="#980000"
+        android:text="Start Survey"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:onClick="OnSurveybtnClicked"/>
+
+
+    <Button
+        android:id="@+id/signupbtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/pink_empty_oval"
+        android:backgroundTint="#980000"
+        android:onClick="OnSignUpbtnClicked"
+        android:text="SIGN UP"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="277dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/functionbtn2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/functionbtn1"
+        android:layout_alignStart="@+id/functionbtn1"
+        android:layout_below="@+id/functionbtn1"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/pink_empty_oval"
+        android:backgroundTint="#980000"
+        android:onClick="OnFunction2btnClicked"
+        android:text="Function2"
+        android:textColor="#FFFFF6"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <TextView
+        android:id="@+id/titletxtview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Count"
+        android:textColor="#980000"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="126dp"
+        android:layout_marginBottom="13dp"
+        android:layout_above="@+id/signupbtn"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/pawprint"
+        android:layout_marginTop="45dp"
+        android:layout_alignTop="@+id/titletxtview"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
+
+
+</RelativeLayout>

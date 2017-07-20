@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+
+    tools:context="com.example.sohee.t.SignUpActivity">
+
+
+    <TextView
+        android:id="@+id/titletxtview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:text="SIGN UP"
+        android:textColor="#980000"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/nameedittext"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8C8C8C"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=" "
+        android:textColor="#980000"
+        android:layout_alignBaseline="@+id/nametxtview"
+        android:layout_alignBottom="@+id/nametxtview"
+        android:layout_alignLeft="@+id/phonenumedittext"
+        android:layout_alignStart="@+id/phonenumedittext" />
+
+    <EditText
+        android:id="@+id/phonenumedittext"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:backgroundTint="#8C8C8C"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=" "
+        android:textColor="#980000"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/phonenumtxtview"
+        android:layout_toEndOf="@+id/phonenumtxtview" />
+
+
+    <Button
+        android:id="@+id/signupenterbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phonenumedittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#980000"
+        android:text="ENTER"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nametxtview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="NAME"
+        android:textColor="#980000"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/phonenumtxtview"
+        android:layout_alignLeft="@+id/phonenumtxtview"
+        android:layout_alignStart="@+id/phonenumtxtview" />
+
+    <TextView
+        android:id="@+id/phonenumtxtview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHONE"
+        android:textColor="#980000"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/signupenterbtn"
+        android:layout_toLeftOf="@+id/signupenterbtn"
+        android:layout_toStartOf="@+id/signupenterbtn" />
+
+
+</RelativeLayout>
