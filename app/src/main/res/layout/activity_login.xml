@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="com.example.sohee.t.LoginActivity">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/ti_1"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:backgroundTint="#8C8C8C"
+        android:foregroundTint="#8C8C8C"
+        android:textColorHint="#8C8C8C"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/ti_2"
+        android:layout_alignStart="@+id/ti_2">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="27dp"
+            android:backgroundTint="#8C8C8C"
+            android:foregroundTint="#8C8C8C"
+            android:hint="이름을 입력하세요"
+            android:textColor="#980000"
+            android:textColorHint="#8C8C8C" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Count"
+        android:textColor="#980000"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="126dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginEnd="39dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignRight="@+id/ti_1"
+        android:layout_alignEnd="@+id/ti_1" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginBottom="38dp"
+        android:layout_above="@+id/ti_1"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/lgnbutton2"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:background="@drawable/lineoval"
+        android:backgroundTint="#980000"
+        android:onClick="OnLoginbtn2Clicked"
+        android:text="LOGIN"
+        android:textColor="#FFFFFF"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/checkBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:textColor="#8C8C8C"
+        app:buttonTint="#980000"
+        android:layout_below="@+id/ti_2"
+        android:layout_alignLeft="@+id/ti_2"
+        android:layout_alignStart="@+id/ti_2" />
+
+    <android.support.design.widget.TextInputLayout
+
+        android:id="@+id/ti_2"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:backgroundTint="#8C8C8C"
+        android:foregroundTint="#8C8C8C"
+        android:textColorHint="#8C8C8C"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:layout_below="@+id/ti_1"
+        android:layout_alignLeft="@+id/lgnbutton2"
+        android:layout_alignStart="@+id/lgnbutton2">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/et_2"
+            android:layout_marginBottom="27dp"
+            android:backgroundTint="#8C8C8C"
+            android:foregroundTint="#8C8C8C"
+            android:hint="휴대폰 번호를 입력하세요"
+            android:textColor="#980000"
+            android:textColorHint="#8C8C8C" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+</RelativeLayout>
