@@ -11,30 +11,48 @@
         android:id="@+id/functionbtn1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/signupbtn"
-        android:layout_alignStart="@+id/signupbtn"
-        android:layout_below="@+id/signupbtn"
-        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:background="@drawable/pink_empty_oval"
         android:backgroundTint="#980000"
         android:onClick="OnFunction1btnClicked"
-        android:text="Function1"
+        android:text="HOT PLACES"
         android:textColor="#FFFFF6"
         android:textSize="17dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="101dp"
         tools:layout_editor_absoluteY="277dp" />
 
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pink_empty_oval"
+        android:backgroundTint="#980000"
+        android:onClick="OnTestbtnClicked"
+        android:text="BEACON"
+        android:textColor="#FFFFF6"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="277dp"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/surveybtn"
+        android:layout_alignLeft="@+id/surveybtn"
+        android:layout_alignStart="@+id/surveybtn" />
+
+
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="80dp"
         android:layout_height="100dp"
-        android:layout_alignLeft="@+id/signupbtn"
 
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/signupbtn"
-        android:layout_marginTop="48dp"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:layout_alignBottom="@+id/titletxtview"
+        android:layout_toLeftOf="@+id/titletxtview"
+        android:layout_toStartOf="@+id/titletxtview" />
     <Button
         android:id="@+id/surveybtn"
         android:layout_width="200dp"
@@ -52,23 +70,6 @@
 
 
     <Button
-        android:id="@+id/signupbtn"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:background="@drawable/pink_empty_oval"
-        android:backgroundTint="#980000"
-        android:onClick="OnSignUpbtnClicked"
-        android:text="SIGN UP"
-        android:textColor="#FFFFFF"
-        android:textSize="17dp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="277dp"
-        android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true" />
-
-    <Button
         android:id="@+id/functionbtn2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -79,7 +80,7 @@
         android:background="@drawable/pink_empty_oval"
         android:backgroundTint="#980000"
         android:onClick="OnFunction2btnClicked"
-        android:text="Function2"
+        android:text="SCHEDULE"
         android:textColor="#FFFFF6"
         android:textSize="17dp"
         android:textStyle="bold"
@@ -96,20 +97,18 @@
         android:textStyle="bold"
         tools:layout_editor_absoluteX="133dp"
         tools:layout_editor_absoluteY="126dp"
-        android:layout_marginBottom="13dp"
-        android:layout_above="@+id/signupbtn"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="134dp" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="250dp"
         android:layout_height="70dp"
         app:srcCompat="@drawable/pawprint"
-        android:layout_marginTop="45dp"
-        android:layout_alignTop="@+id/titletxtview"
-        android:layout_toRightOf="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2" />
+        android:layout_below="@+id/imageView2"
+        android:layout_alignLeft="@+id/titletxtview"
+        android:layout_alignStart="@+id/titletxtview" />
 
 
 </RelativeLayout>

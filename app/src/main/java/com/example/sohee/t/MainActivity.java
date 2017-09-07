@@ -18,14 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void OnSignUpbtnClicked(View v){
-        Intent signupbtnIntent = new Intent(getApplicationContext(),SignUpActivity.class);
-        startActivity(signupbtnIntent);
-    }
 
     public void OnFunction1btnClicked(View v){
         Intent function1btnIntent = new Intent(getApplicationContext(),MapsActivity.class);
         startActivity(function1btnIntent);
+    }
+    public void OnTestbtnClicked(View v){
+        Intent testbtnIntent = new Intent(getApplicationContext(),RecoMainActivity.class);
+        startActivity(testbtnIntent);
     }
 
 //    public void OnFunction2btnClicked(View v){

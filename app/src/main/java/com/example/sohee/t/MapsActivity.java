@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -31,7 +30,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -85,6 +83,7 @@ public class MapsActivity extends AppCompatActivity
         setContentView(R.layout.activity_maps);
 
         mActivity = this;
+//        MapFragment mapFragment = (MapFragment)getFragmentManager().findFragmentById(R.id.map);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -96,7 +95,20 @@ public class MapsActivity extends AppCompatActivity
         restaurantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPlaceInformation(currentPosition);
+                showRestaurantInformation(currentPosition);
+            }
+        });
+
+        Button cafeButton = (Button)findViewById(R.id.cafebtn);
+        cafeButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                showCafeInformation(currentPosition);
+            }
+        });
+        Button tourButton = (Button)findViewById(R.id.tourplacebtn);
+        cafeButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                showTourInformation(currentPosition);
             }
         });
     }
@@ -147,7 +159,7 @@ public class MapsActivity extends AppCompatActivity
 
     }
 
-    public void showPlaceInformation(LatLng location)
+    public void showRestaurantInformation(LatLng location)
     {
         mGoogleMap.clear();//지도 클리어
 
@@ -158,11 +170,47 @@ public class MapsActivity extends AppCompatActivity
                 .listener(MapsActivity.this)
                 .key("AIzaSyC0R0xWUSwv8Hf7nZfMEqZ0wReLnez1HIQ")
                 .latlng(location.latitude, location.longitude)//현재 위치
-                .radius(500) //500 미터 내에서 검색
-                .type(PlaceType.RESTAURANT) //음식점
+                .radius(1000) // 1000 미터 내에서 검색
+                .type(PlaceType.RESTAURANT) // 음식점
                 .build()
                 .execute();
     }
+
+
+    public void showCafeInformation(LatLng location)
+    {
+        mGoogleMap.clear();//지도 클리어
+
+        if (previous_marker != null)
+            previous_marker.clear();//지역정보 마커 클리어
+
+        new NRPlaces.Builder()
+                .listener(MapsActivity.this)
+                .key("AIzaSyC0R0xWUSwv8Hf7nZfMEqZ0wReLnez1HIQ")
+                .latlng(location.latitude, location.longitude)//현재 위치
+                .radius(1000) //1000 미터 내1에서 검색
+                .type(PlaceType.CAFE) //카페
+                .build()
+                .execute();
+    }
+
+    public void showTourInformation(LatLng location)
+    {
+        mGoogleMap.clear();//지도 클리어
+
+        if (previous_marker != null)
+            previous_marker.clear();//지역정보 마커 클리어
+
+        new NRPlaces.Builder()
+                .listener(MapsActivity.this)
+                .key("AIzaSyC0R0xWUSwv8Hf7nZfMEqZ0wReLnez1HIQ")
+                .latlng(location.latitude, location.longitude)//현재 위치
+                .radius(1000) //1000 미터 내1에서 검색
+                .type(PlaceType.MUSEUM)//박물관
+                .build()
+                .execute();
+    }
+
 
     @Override
 
@@ -609,7 +657,6 @@ public class MapsActivity extends AppCompatActivity
     }
 
 }
-
 
 
 

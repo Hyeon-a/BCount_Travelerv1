@@ -2,12 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sohee.t">
 
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="23" />
+
+    <!-- These permissions are required to use bluetooth -->
+    <!-- 블루투스 기능을 사용하기 위해 필요한 권한입니다. -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-feature android:required="true" android:name="android.hardware.bluetooth_le"/>
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="false"
@@ -30,7 +41,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".FirstActivity"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,8 +49,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".MapsActivity"></activity>
+        <activity android:name=".RecoRangingActivity" ></activity>
+        <activity android:name=".LoginActivity" ></activity>
+        <activity android:name=".RecoMainActivity" ></activity>
+
+        <service android:name="com.perples.recosdk.RECOBeaconService" />
+        <service android:name=".RecoBackgroundRangingService"/>
     </application>
 
 </manifest>
