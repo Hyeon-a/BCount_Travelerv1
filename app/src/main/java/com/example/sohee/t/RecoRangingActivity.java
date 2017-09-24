@@ -23,18 +23,34 @@
  */
 package com.example.sohee.t;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.os.RemoteException;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconRegion;
 import com.perples.recosdk.RECOErrorCode;
 import com.perples.recosdk.RECORangingListener;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * RECORangingActivity class is to range regions in the foreground.
@@ -42,6 +58,13 @@ import java.util.Collection;
  * RECORangingActivity 클래스는 foreground 상태에서 ranging을 수행합니다.
  */
 public class RecoRangingActivity extends RecoActivity implements RECORangingListener {
+
+    ProgressDialog dialog = null;
+    EditText inputID, inputPW;
+    HttpPost httpPost;
+    HttpResponse response;
+    HttpClient httpClient;
+    List<NameValuePair> nameValuePairs;
 
     private RecoRangingListAdapter mRangingListAdapter;
     private ListView mRegionListView;
@@ -110,6 +133,44 @@ public class RecoRangingActivity extends RecoActivity implements RECORangingList
         mRangingListAdapter.updateAllBeacons(recoBeacons);
         mRangingListAdapter.notifyDataSetChanged();
         //Write the code when the beacons in the region is received
+       Thread thread = null;
+        thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Looper.prepare();
+                addUser();
+                Looper.loop();
+            }
+        });
+        thread.start();
+        while(thread.isInterrupted()) {
+            thread.interrupt();
+        }
+    }
+    void addUser() {
+        try {
+            httpClient = new DefaultHttpClient();
+            httpPost = new HttpPost("http://10.200.15.145/addUser.php");
+            nameValuePairs = new ArrayList<NameValuePair>(1);
+            nameValuePairs.add(new BasicNameValuePair("phonenum", LoginActivity.phonenum));
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            response = httpClient.execute(httpPost);
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            final String response = httpClient.execute(httpPost,responseHandler);
+            System.out.println("Respone:" + response);
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    dialog.dismiss();
+                }
+            });
+            Log.v("response 값: ", response);
+
+        } catch (Exception e) {
+            dialog.dismiss();
+            System.out.println("Exception : " + e.getMessage());
+        }
     }
 
     @Override

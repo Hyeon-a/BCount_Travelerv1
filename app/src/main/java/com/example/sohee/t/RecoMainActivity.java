@@ -40,6 +40,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class RecoMainActivity extends Activity {
@@ -97,12 +98,17 @@ public class RecoMainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recomain);
         mLayout = findViewById(R.id.mainLayout);
 
         View includedLayout = (View) findViewById(R.id.reco_settings_values );
         TextView mRecoOnlyText = (TextView) includedLayout.findViewById(R.id.recoRecoonlySetting);
+
+
+
         if( SCAN_RECO_ONLY ) {
             mRecoOnlyText.setText(R.string.settings_result_true);
         } else {
@@ -153,6 +159,10 @@ public class RecoMainActivity extends Activity {
                 Log.i("RecoMainActivity", "The location permission (ACCESS_COARSE_LOCATION or ACCESS_FINE_LOCATION) is already granted.");
             }
         }
+
+        //final Intent intent = new Intent(this, RecoRangingActivity.class);//
+        //startActivity(intent);//
+
     }
 
     @Override
@@ -188,13 +198,13 @@ public class RecoMainActivity extends Activity {
         super.onResume();
 
 //        if(this.isBackgroundMonitoringServiceRunning(this)) {
-//            ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundMonitoringToggleButton);
-//            toggle.setChecked(true);
-//        }
+            ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundMonitoringToggleButton);
+            toggle.setChecked(true);
+    //    }
 
         if(this.isBackgroundRangingServiceRunning(this)) {
-            ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundRangingToggleButton);
-            toggle.setChecked(true);
+      //      ToggleButton toggle = (ToggleButton)findViewById(R.id.backgroundRangingToggleButton);
+        //    toggle.setChecked(true);
         }
     }
 
@@ -236,17 +246,17 @@ public class RecoMainActivity extends Activity {
                 .show();
     }
 
-//    public void onMonitoringToggleButtonClicked(View v) {
-//        ToggleButton toggle = (ToggleButton)v;
-//        if(toggle.isChecked()) {
-//            Log.i("MainActivity", "onMonitoringToggleButtonClicked off to on");
-//            Intent intent = new Intent(this, RecoBackgroundMonitoringService.class);
-//            startService(intent);
-//        } else {
-//            Log.i("MainActivity", "onMonitoringToggleButtonClicked on to off");
-//            stopService(new Intent(this, RecoBackgroundMonitoringService.class));
-//        }
-//    }
+    public void onMonitoringToggleButtonClicked(View v) {
+        ToggleButton toggle = (ToggleButton)v;
+        //if(toggle.isChecked()) {
+          //  Log.i("MainActivity", "onMonitoringToggleButtonClicked off to on");
+            Intent intent = new Intent(this, RecoBackgroundMonitoringService.class);
+            startService(intent);
+        //} else {
+          //  Log.i("MainActivity", "onMonitoringToggleButtonClicked on to off");
+           // stopService(new Intent(this, RecoBackgroundMonitoringService.class));
+        //}
+    }
 
     public void onRangingToggleButtonClicked(View v) {
         ToggleButton toggle = (ToggleButton)v;
@@ -272,15 +282,15 @@ public class RecoMainActivity extends Activity {
 
     }
 
-//    private boolean isBackgroundMonitoringServiceRunning(Context context) {
-//        ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
-//        for(ActivityManager.RunningServiceInfo runningService : am.getRunningServices(Integer.MAX_VALUE)) {
-//            if(RecoBackgroundMonitoringService.class.getName().equals(runningService.service.getClassName())) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    private boolean isBackgroundMonitoringServiceRunning(Context context) {
+        ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
+        for(ActivityManager.RunningServiceInfo runningService : am.getRunningServices(Integer.MAX_VALUE)) {
+            if(RecoBackgroundMonitoringService.class.getName().equals(runningService.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private boolean isBackgroundRangingServiceRunning(Context context) {
         ActivityManager am = (ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE);
